@@ -1,0 +1,49 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="UTF-8">-->
+<!--<title>test</title>-->
+<!--</head>-->
+<!--<script>-->
+<!--function selectUser() {-->
+<!--var xmlhttp = new XMLHttpRequest();-->
+<!--xmlhttp.onreadystatechange = function () {-->
+<!--if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {-->
+<!--document.getElementById("test").innerHTML = xmlhttp.responseText;-->
+<!--}-->
+<!--}-->
+<!--xmlhttp.open("POST", "user/showUser.do", true);-->
+<!--xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");-->
+<!--xmlhttp.send("id=1");-->
+<!--}-->
+<!--</script>-->
+<!--<body>-->
+<!--<p id="test">Hello World!</p>-->
+<!--<button type="button" onclick="selectUser()">查询用户列表</button>-->
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html lang="en" xmlns="http://java.sun.com/jsf/html">
+
+<head>
+    <base href="<%=basePath%>">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <title>测试</title>
+
+</head>
+
+<body class="signin">
+    <P1>
+        登录错误...稍后即将跳转登录页...：
+    </P1>
+</body>
+<script>
+    function  qqtc(){
+        window.location.href='http://localhost:8080/userManager/';
+    }
+    setTimeout("qqtc()",3000) ;
+</script>
+
+</html>
