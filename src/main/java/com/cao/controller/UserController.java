@@ -4,13 +4,13 @@ import com.cao.model.User;
 import com.cao.service.IUserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Date;
 import java.util.Map;
 import java.util.Set;
 
@@ -43,11 +43,16 @@ public class UserController {
     }
 
     @RequestMapping("/addUser.do")
-    public Long insertUser(User user)throws Exception{
+    public ModelAndView insertUser(User user, HttpServletRequest request)throws Exception{
         if (null == user){
             return null;
         }
-        return this.userService.insertUser(user);
+        user.setRegTime(new Date());
+        user.setRegIp(request.getRemoteAddr());
+        Long aLong = this.userService.insertUser(user);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName( aLong >= 1L?"login":"register" );
+        return modelAndView;
     }
 
 
